@@ -1,3 +1,5 @@
+FROM node:8-alpine as builder
+
 FROM node:8-alpine
 
 WORKDIR /build
