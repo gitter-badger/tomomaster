@@ -1,4 +1,7 @@
 'use strict'
+require('babel-register')
+require('babel-polyfill')
+require('dotenv').config()
 
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const config = require('config')
@@ -22,7 +25,7 @@ module.exports = {
         },
         tomo: {
             provider: function () {
-                return new HDWalletProvider(config.get('truffle.mnemonic'), config.get('blockchain.rpc'))
+                return new HDWalletProvider(process.env.MNEMONIC, config.get('blockchain.rpc'))
             },
             network_id: config.get('blockchain.networkId'),
             gasPrice: 1
